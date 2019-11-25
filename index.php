@@ -1,22 +1,24 @@
 <?php
+  //チャンネルID
   $channel_id = "UCNsidkYpIAQ4QaufptQBPHQ" ;
+
   $videos = GetVideos($channel_id);
+
   echo '<table>';
   foreach($videos as $video){
-    //if (isset($video['id'])){
-      echo '<tr>';
-        echo '<td>';
-          echo '['.$video['id'].']';
-        echo '</td>';
-        echo '<td>';
-          echo $video['title'];
-        echo '</td>';
-      echo '</tr>';
-    
-  }
+    echo '<tr>';
+      echo '<td>';
+        echo '['.$video['id'].']';
+      echo '</td>';
+      echo '<td>';
+        echo $video['title'];
+      echo '</td>';
+    echo '</tr>';
+   }
   echo '</table>';
 
-  //https://hi3103.net/notes/web/1297
+  //元：https://hi3103.net/notes/web/1297
+  //指定したチャンネルIDのフィードから、動画IDとタイトルを抽出する。
   function GetVideos($channel_id){
     
     // フィードのURL

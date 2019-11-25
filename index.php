@@ -46,14 +46,7 @@
             }elseif( $key=='title' ){
               //動画タイトルを変数に格納
               $video['title'] = $value[0];
-              //if (isset($video['id'])){
-
-              //}
             }
-
-          // if (array_key_exists('id',$video)==false){
-          //   continue;
-          // }
           }else{
             continue;//残りの処理をスキップ
           }

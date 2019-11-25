@@ -1,10 +1,21 @@
 <?php
   $channel_id = "UCNsidkYpIAQ4QaufptQBPHQ" ;
-  $vids = GetVideos($channel_id);
-  foreach($vids as $vid){
-    echo $vid;
-    echo '<br>';
+  $videos = GetVideos($channel_id);
+  echo '<table>';
+  foreach($videos as $video){
+    //if (isset($video['id'])){
+      echo '<tr>';
+        echo '<td>';
+          echo '['.$video['id'].']';
+        echo '</td>';
+        echo '<td>';
+          echo $video['title'];
+        echo '</td>';
+      echo '</tr>';
+    
   }
+  echo '</table>';
+
   //https://hi3103.net/notes/web/1297
   function GetVideos($channel_id){
     
@@ -23,19 +34,31 @@
     //動画が存在するかどうかチェック
     if( $total != 0 ){
       //リストの開始タグを出力
-      for ($i=0; $i < $total; $i++) { 
+      for ($i=0; $i < $total; $i++) {
+        $video = array();
         foreach ($obj_entry[$i] as $key => $value) {
+
           if( in_array($key, array('id','title')) ){//キーがidかtitleの場合
+            
             if( $key=='id'){
               //動画IDを変数に格納（yt:video:XXXXという形式なので手前の文字列を置換処理も挟む）
-              $video_id = str_replace('yt:video:', '', $value[0]);
-              $videos[] = $video_id;
+              $video['id'] = str_replace('yt:video:', '', $value[0]);
+            }elseif( $key=='title' ){
+              //動画タイトルを変数に格納
+              $video['title'] = $value[0];
+              //if (isset($video['id'])){
+
+              //}
             }
+
+          // if (array_key_exists('id',$video)==false){
+          //   continue;
+          // }
           }else{
             continue;//残りの処理をスキップ
           }
         }
-   
+        $videos[] = $video;
       }
       //リストの終了タグを出力
     }

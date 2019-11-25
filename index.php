@@ -19,6 +19,8 @@
 
   //元：https://hi3103.net/notes/web/1297
   //指定したチャンネルIDのフィードから、動画IDとタイトルを抽出する。
+  //返り値：$videoオブジェクトの配列。
+  // $videoオブジェクト：key-> id（動画ID）、title（動画タイトル）
   function GetVideos($channel_id){
     
     // フィードのURL

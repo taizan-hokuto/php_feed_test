@@ -67,7 +67,6 @@
     $key = $data['items'];
      if (count($data['items']) == 0) {
       return 'error';
-       return null;
      }
     return $data['items'][0];
   }

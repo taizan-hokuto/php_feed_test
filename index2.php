@@ -21,7 +21,7 @@
   echo $status['liveStreamingDetails']['actualStartTime'].'<br>';
   echo "終了時間: ";
   if (isset($status['liveStreamingDetails']['actualEndTime'])){
-      echo $status['liveStreamingDetails']['actualEndTime'];
+      echo $status['liveStreamingDetails']['actualEndTime'].'<br>';
     }
   echo "同時接続者数: ";
   echo $status['liveStreamingDetails']['concurrentViewers'].'<br>';

@@ -48,6 +48,7 @@
 
 
   function GetOtherStatus($video_id, $api_key){
+    //複数のフラグを取得するサンプル"
     $url = "https://www.googleapis.com/youtube/v3/videos?part=snippet,liveStreamingDetails&fields=items(id,snippet(title,liveBroadcastContent),liveStreamingDetails(actualStartTime,actualEndTime,concurrentViewers))&id=".$video_id."&key=".$api_key;
 
     $ch = curl_init();

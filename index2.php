@@ -23,8 +23,8 @@
   if (isset($status['liveStreamingDetails']['actualEndTime'])){
       echo $status['liveStreamingDetails']['actualEndTime'];
     }
-    echo "開始時間: ";
-    echo $status['liveStreamingDetails']['actualStartTime'].'<br>';
+  echo "同時接続者数: ";
+  echo $status['liveStreamingDetails']['concurrentViewers'].'<br>';
     
   
   function GetLiveStatus($video_id, $api_key){

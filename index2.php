@@ -23,9 +23,12 @@
   if (isset($status['liveStreamingDetails']['actualEndTime'])){
       echo $status['liveStreamingDetails']['actualEndTime'];
     }
+    echo "開始時間: ";
+    echo $status['liveStreamingDetails']['actualStartTime'].'<br>';
     
   
   function GetLiveStatus($video_id, $api_key){
+    //1回あたりのapiコスト：3
     //戻り値：'live'⇒ライブ配信中、'upcoming'⇒配信予約、'none'⇒アーカイブ済み、'error'⇒動画IDまたはAPIキーが誤っている"
     $url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&fields=items(id,snippet(liveBroadcastContent))&id=".$video_id."&key=".$api_key;
 
@@ -49,6 +52,7 @@
 
   function GetOtherStatus($video_id, $api_key){
     //複数のフラグを取得するサンプル"
+    //1回あたりのapiコスト：約
     $url = "https://www.googleapis.com/youtube/v3/videos?part=snippet,liveStreamingDetails&fields=items(id,snippet(title,liveBroadcastContent),liveStreamingDetails(actualStartTime,actualEndTime,concurrentViewers))&id=".$video_id."&key=".$api_key;
 
     $ch = curl_init();
